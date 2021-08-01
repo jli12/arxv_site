@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>Jason's personal site.</title>
+        <link rel="shortcut icon" type="image/png" href="./images/favicon.png"/>
+        <meta name="description" content="tmp">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Data Loading Scripts -->
+        <script type="text/javascript" src="js/utils.js"></script>
+        <script type="text/javascript" src="./interests.js"></script>
+        <script type="text/javascript" src="data/about-me.js"></script>
+        <script type="text/javascript" src="data/doing-now.js"></script>
+        <script type="text/javascript" src="data/papers.js"></script>
+    </head>
+    <body>
+        <main>
+            <h1>HELLO! I'm... <br>__<br></h1>
+            <p>Jason Li, thanks for stopping by!</p>
+            
+            <h2>Interests<br>__<br></h2>
+            <p id="interests"> <!-- Loaded from JS file --> </p>
+
+            <h2>About Me<br>__<br></h2>
+            <p> I like to think of myself as an avid learner above all else. I'm fascinated and utterly captivated with topics such as: the mechanisms underlying memory and consciousness, the root causes behind how humans decide to act, emergent phenomena of microstates from the quantum level to the societal level, the way our intangible minds interface with this world and derive physicality when everything at the quantum level is ultimately a wave, and on and on. Through the use of computation and Machine Learning, I hope to be able to pursue these questions, as well as any and all I have and that may come up with in the future. </p>
+            <p>Outside of my academics, I enjoy staying active through swimming, running, and biking (though I wouldn't consider it triathlon training just yet) as well as bouldering. I also greatly enjoy baking-- sourdough breads especially-- and cooking in general, and maintain (to the best of my ability) a <a href="portfolio/portfolioHome.html">photography portfolio</a>.</p>
+
+            
+
+            <!-- <p id="about-me">Loaded from JS file</p> -->
+            
+            <!-- <h2>What I'm doing now<br>__<br></h2>
+            <p>This is an up-to-date (hopefully) summary of what I am currently spending time on. See <a href="./doing-now.html">past entries here</a>.</p>
+            <ul id="doing-now-list">
+              Loaded from JS file
+            </ul> -->
+
+            <h2>What I'm up to now<br>__<br></h2>
+            <p>Here's a revolving door of the fun projects that I'm currently have the opportunity of being a part of, as well as an archive of previous work <a href="./subpages/projects.html">here</a>.</p>
+            <ul>
+                <li>Online Hard Example Mining in Torch [2021-] | Dr. Peder Larson, UCSF </li>
+                <li>Mobile Bedside Ultrasound for the Diagnosis of Pediatric Pneumonia [2020-] | BU School of Public Health </li>
+                <li>NIM Module Upgrade for the LHC's CMS Detector [2019-] | Dr. Lawrence Sulak, Boston University</li>
+                <!-- <li><a href="./projects/bostonhacks-2018.html">BostonCracks - bostonhacks [2018] submission</a> - My team's submission which won the data science track.</li>
+                <li><a href="./projects/pytorch-neat.html">PyTorch-NEAT [2018]</a> - A PyTorch implementation of Kenneth O. Stanley's Neuroevolution of Augmenting Topologies (NEAT) <a href="http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf">paper</a>.</li>
+                <li><a href="./projects/arxival.html">Arxival.org [2016]</a> - A 'featurized' <a href="https://arxiv.org">arxiv.org</a> to make keeping up with research papers simpler and more organized.</li> -->
+            </ul>
+
+            <h2>Recent Research Papers (and Noteworthy Books) I've Read<br>__<br></h2>
+            <p> Currently reading: The Myth of Sisyphus by Albert Camus </p>
+            <p> <a href="./subpages/papers-read.html">Here's</a> a list of papers and books I've read. </p>
+            <ul id="papers-list">
+              <!-- Loaded from JS file -->
+            </ul>
+            
+            <h2>Contact Me<br>__<br></h2>
+            <p>Email: <a href="mailto:jfli@bu.edu">jfli@bu.edu</a> <!-- | Twitter: <a href="https://twitter.com/ddehueck">@ddehueck</a> -->  </p>
+            <p><a href="portfolio/portfolioHome.html">Photography Portfolio</a></p>
+            <p><a href="portfolioHome.html"><i class="fas fa-camera-retro"></i></a></p>
+        </main>
+    </body>
+
+    <script type="text/javascript">
+
+      /*-----------------------------
+                 Interests
+      // -----------------------------*/
+      sortByCreatedDate(interests.data)
+      let academic = interests.data[0]
+      let excur = interests.data[1]
+      addDataToTag("interests", "Academic: "+academic.academic)
+      addDataToTag("interests", "<br>")
+      addDataToTag("interests", "Extracurricular: "+excur.excur)
+
+      /*-----------------------------
+                 Summary
+      -----------------------------*/
+      sortByCreatedDate(summarys.data)
+      let summaryData = summarys.data[0]
+      addDataToTag("about-me", summaryData.summary)
+
+
+      /*-----------------------------
+                 Doing Now
+      -----------------------------*/
+      // Only show first 5
+      sortByCreatedDate(doingNow.data)
+      let doingNowData = doingNow.data.slice(0, 4);
+      loadListFromData(doingNowData, "doing-now-list", "description")
+
+      /*-----------------------------
+                 Papers
+      -----------------------------*/
+      // Only show first 5
+      sortByCreatedDate(papers.data)
+      let paperData = papers.data.slice(0, 4);
+      loadListFromData(paperData, "papers-list", "citation")
+    </script>
+
+</html>

@@ -1,0 +1,32 @@
+/*-----------------------------------
+Goal - as few lines of CSS possible
+-----------------------------------*/
+
+body {
+	font-family: Comic Sans MS /*Chalkduster, American Typewriter, Comic Sans MS, monospace*/;
+	margin: 25px;
+	padding: 0;
+}
+
+h1, h2 {
+	font-size: 15px;
+	text-transform: uppercase;
+}
+
+p, li{
+	font-size: 14px;
+	line-height: 25px;
+}
+
+main {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+img {
+	width: 100%;
+}
+
+.right {
+	text-align: right;
+}

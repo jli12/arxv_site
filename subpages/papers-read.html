@@ -1,0 +1,126 @@
+<html>
+    <head>
+        <title>Papers Read - Jason Li's personal site.</title>
+        <link rel="shortcut icon" type="image/png" href="../images/favicon.png"/>
+        <!-- <meta name="description" content="The projects of Devin de Hueck"> -->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" src="data/aml-papers.js"></script>
+        <script type="text/javascript" src="data/bio-papers.js"></script>
+        <script type="text/javascript" src="data/ml-papers.js"></script>
+        <script type="text/javascript" src="data/mltechs-papers.js"></script>
+        <script type="text/javascript" src="data/neuro-papers.js"></script>
+        <script type="text/javascript" src="data/sm-papers.js"></script>
+        <script type="text/javascript" src="data/books.js"></script>
+    </head>
+
+    <body>
+        <main>
+
+          <h1 id="papers-read">Papers Read <a href="../index.html">[HOME]</a></h1>
+          <p> First compiled on 7/31/21, so many previously read papers may have slipped my mind.</p>
+          <ul> 
+            <li><a href="#appliedml">Applied ML</a></li>
+            <li><a href="#bio">Biology</a></li>
+            <li><a href="#machinelearning">Machine Learning</a></li>
+            <!-- <li><a href="#mltechs">Neuro-ML</a></li> -->
+            <li><a href="#neuro">Neuroscience</a></li>
+            <li><a href="#statmech">Statistical Mechanics</a></li>
+            <li><a href="#books">Books</a></li>
+           </ul>
+
+          <section id="appliedml">
+            <p>Applied ML <a href="#papers-read">[top]</a> </p>
+            <ol id="aml-papers" reversed>
+            </ol>
+          </section>
+
+          <section id="bio">
+            <p>Biology <a href="#papers-read">[top]</a> </p>
+            <ol id="bio-papers" reversed>
+            </ol>
+          </section>
+
+          <section id="machinelearning">
+            <p>Machine Learning/Deep Learning <a href="#papers-read">[top]</a></p>
+            <ol id="ml-papers" reversed>
+            </ol>
+          </section>
+
+          <section id="neuro">
+            <p>Neuroscience <a href="#papers-read">[top]</a> </p>
+            <ol id="neuro-papers" reversed>
+            </ol>
+          </section>
+
+          <!-- <section id="quantum">
+            <p>Quantum Mechanics <a href="#papers-read">[top]</a> </p>
+            <ol id="qm-papers" reversed>
+            </ol>
+          </section> -->
+
+          <section id="statmech">
+            <p>Statistical Mechanics <a href="#papers-read">[top]</a> </p>
+            <ol id="sm-papers" reversed>
+            </ol>
+          </section>
+
+          <section id="books">
+            <p>Books <a href="#papers-read">[top]</a> </p>
+            <ol id="book-list" reversed>
+            </ol>
+          </section>
+
+        </main>
+    </body>
+
+    <script type="text/javascript">
+      // Only show first 5
+      let bio_paperData = bio_papers.data;
+      let ml_paperData = ml_papers.data;
+      let aml_paperData = aml_papers.data;
+      let neuro_paperData = neuro_papers.data;
+      // let qm_paperData = qm_papers.data;
+      let sm_paperData = sm_papers.data;
+      let bookData = books.data;
+
+      // Sort by date
+      ml_paperData.sort((a,b) => b.created_at - a.created_at);
+      aml_paperData.sort((a,b) => b.created_at - a.created_at);
+      neuro_paperData.sort((a,b) => b.created_at - a.created_at);
+      bio_paperData.sort((a,b) => b.created_at - a.created_at);
+      // qm_paperData.sort((a,b) => b.created_at - a.created_at);
+      sm_paperData.sort((a,b) => b.created_at - a.created_at);
+      bookData.sort((a,b) => b.created_at - a.created_at);
+
+
+      // Reference list to add papers to
+      var sections = ["aml-papers", "ml-papers", "neuro-papers", "bio-papers", "sm-papers", "book-list"];
+      var data = [aml_paperData, ml_paperData, neuro_paperData, bio_paperData, sm_paperData, bookData];
+      for (let i = 0; i < sections.length; i++) {
+        list_papers(sections[i], data[i])
+      // let ul = document.getElementById("ml-papers");
+      // ml_paperData.forEach(
+      //   paperObj => {
+      //     let li = document.createElement("li");
+      //     li.innerHTML = `<p class="citation">${paperObj.citation}<br><strong>Read On:</strong></p>`;
+      //     ul.appendChild(li);
+      //   }
+      // );
+      };
+
+      function list_papers(id, data) {
+        let ul = document.getElementById(id);
+
+        data.forEach(
+          paperObj => {
+            let li = document.createElement("li");
+            li.innerHTML = `<p class="citation">${paperObj.citation}<br><strong>Read On: </strong>${paperObj.readon}</p>`;
+            ul.appendChild(li);
+          }
+        );
+      }
+    </script>
+
+</html>
