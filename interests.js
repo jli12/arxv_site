@@ -1,1 +1,1 @@
-interests = {"data":[{"academic":"Machine Learning, Neuroscience, Biology, Statistical Mechanics, Quantum Mechanics, Philosophy"}, {"excur":"Swimming/Running/Biking, Bouldering/Climbing, Photography, Baking/Cooking"}]}
+interests = {"data":[{"academic":"Machine Learning, Neuroscience, Biology, Statistical Mechanics, Quantum Mechanics, Philosophy"}, {"excur":"Swimming/Running/Biking, Bouldering/Climbing, Photography, Baking/Cooking, Amateur Philosophizing :)"}]}
