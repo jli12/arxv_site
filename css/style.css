@@ -11,6 +11,13 @@ body {
 h1, h2 {
 	font-size: 15px;
 	text-transform: uppercase;
+	/*position: relative;*/
+}
+
+h12, h13 {
+	font-family: monospace;
+	float: left;
+	width: 50%;
 }
 
 p, li{
@@ -19,6 +26,14 @@ p, li{
 }
 
 main {
+	position:relative; 
+	top:155px;
+	max-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 25px;
+}
+article {
+	/*position: absolute;*/
 	max-width: 800px;
 	margin: 0 auto;
 }
@@ -29,4 +44,20 @@ img {
 
 .right {
 	text-align: right;
+}
+
+.topleft {
+  position: absolute;
+  top: 50px;
+  left: 18%;
+  font-size: 18px;
+  width: 30%;
+}
+
+.topright {
+  position: absolute;
+  top: 50px;
+  left: 55%;
+  font-size: 18px;
+  width: 30%;
 }
