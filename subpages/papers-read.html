@@ -9,7 +9,8 @@
         <script type="text/javascript" src="data/aml-papers.js"></script>
         <script type="text/javascript" src="data/bio-papers.js"></script>
         <script type="text/javascript" src="data/ml-papers.js"></script>
-        <script type="text/javascript" src="data/mltechs-papers.js"></script>
+        <!-- <script type="text/javascript" src="data/mltechs-papers.js"></script> -->
+        <script type="text/javascript" src="data/misc-papers.js"></script>
         <script type="text/javascript" src="data/neuro-papers.js"></script>
         <script type="text/javascript" src="data/sm-papers.js"></script>
         <script type="text/javascript" src="data/books.js"></script>
@@ -19,12 +20,12 @@
         <article>
 
           <h1 id="papers-read">Papers Read <a href="../index.html">[HOME]</a></h1>
-          <p> First compiled on 7/31/21, so many previously read papers may have slipped my mind.</p>
+          <p> (First compiled on 7/31/21, so many previously read papers and books may have slipped my mind.)</p>
           <ul> 
             <li><a href="#appliedml">Applied ML</a></li>
             <li><a href="#bio">Biology</a></li>
             <li><a href="#machinelearning">Machine Learning</a></li>
-            <!-- <li><a href="#mltechs">Neuro-ML</a></li> -->
+            <li><a href="#misc">Misc.</a></li>
             <li><a href="#neuro">Neuroscience</a></li>
             <li><a href="#statmech">Statistical Mechanics</a></li>
             <li><a href="#books">Books</a></li>
@@ -48,17 +49,19 @@
             </ol>
           </section>
 
+          <section id="misc">
+            <p>Misc <a href="#papers-read">[top]</a> </p>
+            <ol id="misc-papers" reversed>
+            </ol>
+          </section>
+
           <section id="neuro">
             <p>Neuroscience <a href="#papers-read">[top]</a> </p>
             <ol id="neuro-papers" reversed>
             </ol>
           </section>
 
-          <!-- <section id="quantum">
-            <p>Quantum Mechanics <a href="#papers-read">[top]</a> </p>
-            <ol id="qm-papers" reversed>
-            </ol>
-          </section> -->
+          
 
           <section id="statmech">
             <p>Statistical Mechanics <a href="#papers-read">[top]</a> </p>
@@ -76,18 +79,18 @@
     </body>
 
     <script type="text/javascript">
-      // Only show first 5
+      let aml_paperData = aml_papers.data;
       let bio_paperData = bio_papers.data;
       let ml_paperData = ml_papers.data;
-      let aml_paperData = aml_papers.data;
+      let misc_paperData = misc_papers.data;
       let neuro_paperData = neuro_papers.data;
-      // let qm_paperData = qm_papers.data;
       let sm_paperData = sm_papers.data;
       let bookData = books.data;
 
       // Sort by date
-      ml_paperData.sort((a,b) => b.created_at - a.created_at);
       aml_paperData.sort((a,b) => b.created_at - a.created_at);
+      ml_paperData.sort((a,b) => b.created_at - a.created_at);
+      misc_paperData.sort((a,b) => b.created_at - a.created_at);
       neuro_paperData.sort((a,b) => b.created_at - a.created_at);
       bio_paperData.sort((a,b) => b.created_at - a.created_at);
       // qm_paperData.sort((a,b) => b.created_at - a.created_at);
@@ -96,8 +99,8 @@
 
 
       // Reference list to add papers to
-      var sections = ["aml-papers", "ml-papers", "neuro-papers", "bio-papers", "sm-papers", "book-list"];
-      var data = [aml_paperData, ml_paperData, neuro_paperData, bio_paperData, sm_paperData, bookData];
+      var sections = ["aml-papers", "ml-papers", "misc-papers", "neuro-papers", "bio-papers", "sm-papers", "book-list"];
+      var data = [aml_paperData, ml_paperData, misc_paperData, neuro_paperData, bio_paperData, sm_paperData, bookData];
       for (let i = 0; i < sections.length; i++) {
         list_papers(sections[i], data[i])
       // let ul = document.getElementById("ml-papers");

@@ -27,7 +27,8 @@ p, li{
 
 main {
 	position:relative; 
-	top:155px;
+	/*top:155px;*/
+	top:20%;
 	max-width: 800px;
 	margin: 0 auto;
 	margin-bottom: 25px;
