@@ -37,7 +37,7 @@ function pad(num, size) {
 var month_padded = pad(today.getMonth()+1, 2);
 var day_padded = pad(today.getDate(), 2);
 var today_str = month_padded+day_padded+today.getFullYear().toString();
-
+var start_date = "08102021";
 
 var mtbl  = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
 var mnames = new Array("Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -75,28 +75,32 @@ function renderMonth(parent, month, year) {
 	let dateCells = $(parent + " div.dt");
 	let cellid = dayOfWeek(1, month, year) - 1;
 	let max = mtbl[month-1];
+	 // Number(""+month+ix+year)
 	// let msg = ""
 	if (max == 28 && leap) max = 29;
 
 	// dateCells.eq(cellid++).html(1);
 	for (let ix = 1; ix <= max; ix++) {
-
-		if (Number(today_str) != Number(""+month+ix+year)) {
-			btn = "<button class=\"unstyled-button\">"+ix+"</button>";
-		} else {
+		if (parseInt(""+pad(month, 2)+pad(ix, 2)+year) == parseInt(today_str)) {
 			btn = "<button class=\"unstyled-button\" style=\"font-weight:bold;\">"+ix+"</button>";
-		}
+		} else if (!(""+pad(month, 2)+pad(ix, 2)+year in learned)) {//parseInt(""+pad(month, 2)+pad(ix, 2)+year) < parseInt(start_date) || 
+			btn = "<p style=\"color:lightgrey;\">"+ix+"</p>";
+		} else {//if (parseInt(""+pad(month, 2)+pad(ix, 2)+year) < parseInt(start_date)) {
+			btn = "<button class=\"unstyled-button\">"+ix+"</button>";
+		} 
+
 		dateCells.eq(cellid).html(btn);
 
 		(function(m,d,y){
 	        dateCells.eq(cellid++).on('click', function () {
-	        	// alert(today_str)
-	        	// alert(""+m+d+y)
-	        	if (Number(today_str) < Number(""+m+d+y)) {
-	        		alert(learned['future']);
-	        	}
-	        	else {
-		        	// alert(today_str);
+
+	        	// if (parseInt(""+pad(m, 2)+pad(d, 2)+y) < parseInt(start_date)) {
+	        	// } else 
+	        	if (parseInt(today_str) < parseInt(""+m+d+y)) {
+	        		// alert(learned['future']);
+	        	} else if (today_str.localeCompare(""+m+d+y) == 0) {
+	        		alert(learned['today']);
+	        	} else {
 		        	try{ 
 		        		let disp_str = "";
 		        		for (const s of learned[""+m+d+y]) {
@@ -105,10 +109,10 @@ function renderMonth(parent, month, year) {
 		        		alert(disp_str);
 						// alert(learned[""+m+d+y][0]);
 					} catch (error) {
-						alert(learned['empty']);
+						// alert(learned['empty']);
+						// alert(""+month+ix+year+start_date);
 					}
 				}
-	           // alert(""+m+d+y); // index === the value that was passed
 	        });
     	})(pad(month, 2),pad(ix,2),year);
 	
